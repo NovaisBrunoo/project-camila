@@ -1,103 +1,132 @@
-import Image from "next/image";
+'use client';
+import CardProcedimento from '@/components/Card-procedimento/Card-procedimento';
+import 'animate.css';
+import useEmblaCarousel from 'embla-carousel-react';
+
+
+const slides = [
+  '/img-profile/pcit-1.jpeg',
+  '/img-profile/pic-02.jpeg',
+  '/img-profile/pic-3.jpeg',
+
+];
 
 export default function Home() {
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+  const [emblaRef] = useEmblaCarousel();
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+
+  return (
+    <div className="flex flex-col items-center justify-center min-h-screen">
+      <div className='w-full h-[500px] flex justify-center items-center'>
+        { /* Video */}
+        <div className='w-1/2 h-full flex justify-center items-center'>
+          <video
+            className="w-full h-full object-cover "
+            autoPlay
+            loop
+            muted
+            playsInline
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+            <source src="/video/home-banner.mp4" type="video/mp4" />
+
+          </video>
+
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
+
+        { /* escrito */}
+        <div className='w-1/2 h-full flex flex-col justify-center items-center bg-[#c2796a]'>
+          <strong className='text-4xl text-white font-bold animate__animated animate__fadeInDown'>
+            Clinica Camila
+          </strong>
+          <p>melhor solução em estetica</p>
+        </div>
+      </div>
+
+      <div className='w-full h-[500px] flex justify-center items-center p-4'>
+
+        <div className='w-1/2 h-full flex-col flex justify-center items-start gap-4 p-4'>
+          <strong className='w-full text-left text-5xl'> Sobre nós</strong>
+          <p className='text-justify'>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+
+          <button className='w-3/5 h-12 rounded-lg bg-[#c2796a]'>
+            <strong className='text-2xl font-bold text-white'> Saiba mais</strong>
+          </button>
+        </div>
+
+        <div className='w-1/2 h-full flex justify-center items-center p-4'>
+          <img
+            src="/img-profile/pcit-1.jpeg"
+            alt="image profile"
+            className='w-full h-full object-contain'
           />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+
+        </div>
+      </div>
+
+
+      { /* Sobre*/}
+      <div className='w-full h-12 flex flex-col justify-center items-center p-2 bg-[#c2796a]'>
+        <strong className='text-2xl text-white font-bold'> Procedimentos</strong>
+      </div>
+
+      { /* Procedimentos*/}
+      <div className='w-full h-full flex flex-col justify-center items-center p-5'>
+        <div className='w-full h-auto flex flex-wrap justify-center items-center gap-4 p-4'>
+          <CardProcedimento />
+          <CardProcedimento />
+          <CardProcedimento />
+          <CardProcedimento />
+
+
+        </div>
+      </div>
+
+
+      { /* Carrocel de imagem*/}
+      <div className='w-full h-full flex justify-center items-center p-5'>
+        <div className="overflow-hidden" ref={emblaRef}>
+          <div className="flex">
+            {slides.map((src, index) => (
+              <div className="min-w-full" key={index}>
+                <img src={src} alt={`Slide ${index}`} className="w-full h-[400px] object-contain" />
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      { /* Localização*/}
+      <div className='w-full h-auto flex justify-center items-center bg-[#c2796a] p-2'>
+        <strong className='text-2xl text-white font-bold'> Aonde nos encontrar</strong>
+      </div>
+      <div className='w-full h-[500px] flex justify-center items-center p-5'>
+        <div className='w-1/2 h-full flex flex-col justify-center items-center p-4 gap-5'>
+          <strong className='w-full text-left text-5xl font-bold'>Venha nos fazer uma visita</strong>
+          <span className='w-full text-left text-[18px]'>
+            Estamos localizados em uma área de fácil acesso, preparados para recebê-lo com excelência. No mapa ao lado, você pode visualizar nossa localização e traçar sua rota com praticidade. Esperamos por você!
+            R. Trinta e Três, 132 - Vila Santa Cecília, Volta Redonda - RJ, 27261-310
+          </span>
+
+        </div>
+
+        <div className='w-1/2 h-full flex justify-center items-center p-4'>
+          <strong>OUTRO CARROCEL COM IMAGEM DO LUGAR</strong>
+        </div>
+      </div>
+
+
+      { /* Video Youtube*/}
+      <div className='w-full h-auto flex justify-center items-center bg-[#c2796a] p-2'>
+        <strong className='text-2xl text-white font-bold'>Depoimentos</strong>
+      </div>
+      <div className='w-full h-[500px] flex justify-center items-center p-5'>
+        <strong>Aqui podemos colocar video do youtube sobre a clinica falando sobre procedimetnos</strong>
+      </div>
+
+      { /* rede sociais*/}
+      <div className='w-full h-[500px] flex flex-col justify-center items-center bg-[#c2796a]'>
+        <strong>Nossa rede sociais</strong>
+      </div>
     </div>
   );
 }
