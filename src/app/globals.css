@@ -1,5 +1,1 @@
 @import "tailwindcss";
-
-body {
-    @apply bg-[url('/background/background.jpg')] bg-cover bg-center bg-no-repeat;
-}

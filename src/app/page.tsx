@@ -1,132 +1,102 @@
-'use client';
-import CardProcedimento from '@/components/Card-procedimento/Card-procedimento';
+import CarrocelCard from "@/components/Carrocel-card/page";
+import Carrocel from "@/components/Carrocel/page";
 import 'animate.css';
-import useEmblaCarousel from 'embla-carousel-react';
-
-
-const slides = [
-  '/img-profile/pcit-1.jpeg',
-  '/img-profile/pic-02.jpeg',
-  '/img-profile/pic-3.jpeg',
-
-];
 
 export default function Home() {
-  const [emblaRef] = useEmblaCarousel();
-
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen">
-      <div className='w-full h-[500px] flex justify-center items-center'>
-        { /* Video */}
-        <div className='w-1/2 h-full flex justify-center items-center'>
-          <video
-            className="w-full h-full object-cover "
-            autoPlay
-            loop
-            muted
-            playsInline
-          >
-            <source src="/video/home-banner.mp4" type="video/mp4" />
+    <main className="flex min-h-screen flex-col items-center justify-center">
 
-          </video>
+      {      /* Header */}
+      <header className="w-full h-16 bg-white flex items-center justify-between p-5">
+        <h1 className="text-2xl font-bold text-black">Welcome to Our Website</h1>
+        <h1 className="text-2xl font-bold text-black">logo</h1>
+      </header>
 
-        </div>
+      {/* Banner principal */}
+      <div className="w-full h-[500px] relative overflow-hidden">
+        {/* Vídeo de fundo */}
+        <video
+          className="absolute top-0 left-0 w-full h-full object-cover z-0"
+          autoPlay
+          loop
+          muted
+          playsInline
+        >
+          <source src="/video/home-banner.mp4" type="video/mp4" />
+        </video>
 
-        { /* escrito */}
-        <div className='w-1/2 h-full flex flex-col justify-center items-center bg-[#c2796a]'>
-          <strong className='text-4xl text-white font-bold animate__animated animate__fadeInDown'>
-            Clinica Camila
-          </strong>
-          <p>melhor solução em estetica</p>
-        </div>
-      </div>
-
-      <div className='w-full h-[500px] flex justify-center items-center p-4'>
-
-        <div className='w-1/2 h-full flex-col flex justify-center items-start gap-4 p-4'>
-          <strong className='w-full text-left text-5xl'> Sobre nós</strong>
-          <p className='text-justify'>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-
-          <button className='w-3/5 h-12 rounded-lg bg-[#c2796a]'>
-            <strong className='text-2xl font-bold text-white'> Saiba mais</strong>
-          </button>
-        </div>
-
-        <div className='w-1/2 h-full flex justify-center items-center p-4'>
-          <img
-            src="/img-profile/pcit-1.jpeg"
-            alt="image profile"
-            className='w-full h-full object-contain'
-          />
-
-        </div>
-      </div>
-
-
-      { /* Sobre*/}
-      <div className='w-full h-12 flex flex-col justify-center items-center p-2 bg-[#c2796a]'>
-        <strong className='text-2xl text-white font-bold'> Procedimentos</strong>
-      </div>
-
-      { /* Procedimentos*/}
-      <div className='w-full h-full flex flex-col justify-center items-center p-5'>
-        <div className='w-full h-auto flex flex-wrap justify-center items-center gap-4 p-4'>
-          <CardProcedimento />
-          <CardProcedimento />
-          <CardProcedimento />
-          <CardProcedimento />
-
-
-        </div>
-      </div>
-
-
-      { /* Carrocel de imagem*/}
-      <div className='w-full h-full flex justify-center items-center p-5'>
-        <div className="overflow-hidden" ref={emblaRef}>
-          <div className="flex">
-            {slides.map((src, index) => (
-              <div className="min-w-full" key={index}>
-                <img src={src} alt={`Slide ${index}`} className="w-full h-[400px] object-contain" />
-              </div>
-            ))}
+        {/* Texto sobreposto */}
+        <div className="flex-col gap-1 relative z-10 w-full h-full flex items-start justify-center">
+          <div className="w-1/2 flex flex-col justify-start items-start p-5 gap-2 animate__animated animate__fadeInUp ">
+            <strong className="text-left text-white font-bold text-5xl">
+              Realce a beleza que você possui.
+            </strong>
+            <span className="text-left text-white font-bold">Micropigmentação e estética na Vila Olímpia</span>
           </div>
+
         </div>
       </div>
 
-      { /* Localização*/}
-      <div className='w-full h-auto flex justify-center items-center bg-[#c2796a] p-2'>
-        <strong className='text-2xl text-white font-bold'> Aonde nos encontrar</strong>
-      </div>
-      <div className='w-full h-[500px] flex justify-center items-center p-5'>
-        <div className='w-1/2 h-full flex flex-col justify-center items-center p-4 gap-5'>
-          <strong className='w-full text-left text-5xl font-bold'>Venha nos fazer uma visita</strong>
-          <span className='w-full text-left text-[18px]'>
-            Estamos localizados em uma área de fácil acesso, preparados para recebê-lo com excelência. No mapa ao lado, você pode visualizar nossa localização e traçar sua rota com praticidade. Esperamos por você!
-            R. Trinta e Três, 132 - Vila Santa Cecília, Volta Redonda - RJ, 27261-310
+      {/* Cards */}
+      <div className="w-full h-auto flex flex-col items-center justify-center bg-[#c2796a] p-10">
+        <div className="w-full flex flex-col items-center justify-center gap-2">
+          <img
+            className="animate__animated animate__fadeInUp"
+            src="/img-profile/pcit-1.jpeg "
+            alt="img de perfil"
+            height={500}
+            width={500}
+          />
+          <span className="text-5xl text-center  w-[70%] animate__animated animate__fadeInUp animate__delay-1s">
+            Na MB Beauty, cada traço é desenhado com dedicação e delicadeza para realçar sua beleza única e fazer você se sentir ainda mais confiante e extraordinária
           </span>
 
         </div>
+      </div>
 
-        <div className='w-1/2 h-full flex justify-center items-center p-4'>
-          <strong>OUTRO CARROCEL COM IMAGEM DO LUGAR</strong>
+
+      {/* carrocel */}
+
+      <div className="w-full h-[800px] flex flex-col items-center justify-center">
+        <Carrocel />
+      </div>
+
+
+      {/* Procedimento */}
+      <div className="w-full h-auto flex flex-col justify-center items-center bg-[#c2796a] p-5">
+        <strong className="text-3xl">Procedimentos</strong>
+        <div className="w-full flex justify-center items-center">
+          <strong className="text-white text-2xl">Autocuidado e beleza</strong><span className="text-black text-2xl">, você mais bonita hoje!</span>
         </div>
       </div>
+      <div className="w-full h-auto flex justify-center items-center gap-5 p-10 bg-[url('/background/banner.jpg')] bg-cover bg-center ">
+        <CarrocelCard />
 
-
-      { /* Video Youtube*/}
-      <div className='w-full h-auto flex justify-center items-center bg-[#c2796a] p-2'>
-        <strong className='text-2xl text-white font-bold'>Depoimentos</strong>
-      </div>
-      <div className='w-full h-[500px] flex justify-center items-center p-5'>
-        <strong>Aqui podemos colocar video do youtube sobre a clinica falando sobre procedimetnos</strong>
       </div>
 
-      { /* rede sociais*/}
-      <div className='w-full h-[500px] flex flex-col justify-center items-center bg-[#c2796a]'>
-        <strong>Nossa rede sociais</strong>
+      {/* Localização */}
+
+      <div className="w-full h-[100px] flex flex-col items-center justify-center relative overflow-hidden ">
+        <img
+          className="absolute top-0 left-0 w-full h-full object-cover z-0"
+          src="/background/banner.jpg"
+          alt="" />
+
+        <div className="w-full h-auto flex flex-col items-center justify-center relative z-10">
+          <strong className="text-4xl text-white">Localização</strong>
+          <span className="text-3xl text-white">Rua Gomes de Carvalho, 1000 - Vila Olímpia, São Paulo - SP</span>
+
+        </div>
+
       </div>
-    </div>
+
+      <div className="w-full h-[800px] flex justify-center items-center">
+        <Carrocel />
+
+      </div>
+
+
+    </main>
   );
 }
